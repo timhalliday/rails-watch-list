@@ -1,0 +1,38 @@
+<h1> <%= @list.name %> </h1>
+  <ul>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li>
+        <%= bookmark.movie.title %> &nbsp; <%= link_to bookmark_path(bookmark),
+                                        method: :delete,
+                                        data: { confirm: "Are you sure?" } do %>
+                                          <i class="fa-solid fa-trash-can"></i>
+                                        <% end %>
+
+      </li>
+    <% end %>
+  </ul>
+<br>
+
+
+<div class="container">
+  <div class="cards">
+    @list.bookmarks
+    <div class="card">
+      <div class="movie_poster">
+        <img src="" alt="poster">
+      </div>
+      <h3>Movie title</h3>
+      <p>Overview</p>
+      <p>Rating</p>
+      <p>Delete</p>
+    </div>
+  </div>
+</div>
+
+
+<h2>Add a bookmark to this list</h2>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.submit "Add bookmark", class: "btn btn-secondary" %>
+<% end %>
