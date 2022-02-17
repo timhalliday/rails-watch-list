@@ -12,13 +12,14 @@ url = 'http://tmdb.lewagon.com/movie/top_rated'
 movies_serialized = URI.open(url).read
 movies = JSON.parse(movies_serialized)
 
+Movie.destroy_all
 puts 'Generating movies'
 
 movies['results'].first(20).each do |movie|
   new_movie = Movie.new(
                         title: movie['title'],
                         overview: movie['overview'],
-                        poster_url: movie['poster_path'],
+                        poster_url: 'https://image.tmdb.org/t/p/w500/' + movie['poster_path'],
                         rating: movie['vote_average']
                        )
   puts new_movie['title']
