@@ -15,7 +15,7 @@ movies = JSON.parse(movies_serialized)
 Movie.destroy_all
 puts 'Generating movies'
 
-movies['results'].first(20).each do |movie|
+movies['results'].each do |movie|
   new_movie = Movie.new(
                         title: movie['title'],
                         overview: movie['overview'],
