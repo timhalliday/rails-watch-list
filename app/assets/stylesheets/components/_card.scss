@@ -1,13 +1,24 @@
 .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 16px;
     row-gap: 16px;
 }
 
-.card {
+.lists-cards {
+  grid-template-columns: 1fr 1fr 1fr
+}
+
+.movies-cards {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.list-card {
+
+}
+
+
+.movie-card {
   width: 300px;
-  position: relative;
   border-radius: 3px;
   box-shadow: 1px 1px 5px rgba(20, 20, 20, 0.2)
 }
@@ -19,13 +30,11 @@
 }
 
 .del {
-  display: inline;
   font-size: 15px;
   margin-bottom: 0;
 }
 
 .rating {
-  display: inline;
   font-weight: bold;
   margin-bottom: 0;
 }

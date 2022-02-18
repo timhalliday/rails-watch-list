@@ -1,4 +1,5 @@
-<% @lists.each do |list| %>
+<div class="container">
+  <% @lists.each do |list| %>
     <h1><%= link_to list.name, list_path(list) %></h1>
     <ul>
       <% list.movies.each do |movie| %>
@@ -6,3 +7,4 @@
       <% end %>
     </ul>
   <% end %>
+</div>
